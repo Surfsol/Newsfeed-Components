@@ -38,12 +38,6 @@ function createMenu(array) {
   //set elemetns
   let menuDiv = document.createElement("div");
   let uL = document.createElement("ul");
-  let li1 = document.createElement("li");
-  let li2 = document.createElement("li");
-  let li3 = document.createElement("li");
-  let li4 = document.createElement("li");
-  let li5 = document.createElement("li");
-  let li6 = document.createElement("li");
 
   //set class
   menuDiv.classList.add("menu");
@@ -53,23 +47,33 @@ function createMenu(array) {
 
   array.forEach(e => {
     let li = document.createElement("li");
-    ul.appendChild((li.textContent = array[array[e]]));
+    li.textContent = e;
+    uL.appendChild(li);
   });
 
   let menuButton = document.querySelector(".menu-button");
   menuButton.addEventListener("click", e => {
-    menuButton.classList.toggle("menu--open");
+    menuDiv.classList.toggle("menu--open");
   });
+
   return menuDiv;
 }
 
-let menuButton = document.querySelector(".menu-button");
-
-menuItems.map(e => {
-  menuButton.appendChild(createMenu(e));
-});
+let qhead = document.querySelector(".header");
+qhead.appendChild(createMenu(menuItems));
 
 /*
+window.addEventListener("load", () => {
+  let qhead = document.querySelector(".header");
+  qhead.appendChild(createMenu(menuItems));
+});
+
+let li1 = document.createElement("li");
+  let li2 = document.createElement("li");
+  let li3 = document.createElement("li");
+  let li4 = document.createElement("li");
+  let li5 = document.createElement("li");
+  let li6 = document.createElement("li");
   uL.appendChild(li1);
   uL.appendChild(li2);
   uL.appendChild(li3);
